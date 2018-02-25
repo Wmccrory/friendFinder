@@ -18,6 +18,16 @@
 		box-sizing: border-box;
 		user-select: none;
 	}
+
+	a:link {
+		text-decoration: none;
+		color: #fff;
+	}
+
+	a:visited {
+		text-decoration: none;
+		color: #fff;
+	}
 	
 	.homeBody {
 		background: radial-gradient(circle, #660066, #800080, #be29ec, #660066);
