@@ -15,18 +15,30 @@
 	body {
 		font-size: 15px;
 		font-family: "arimo", Arial, sans-serif;
-		color: #fff;
 		box-sizing: border-box;
+		user-select: none;
+	}
+	
+	.homeBody {
 		background: radial-gradient(circle, #660066, #800080, #be29ec, #660066);
 		background-size: cover;
+		color: #fff;
+	}
+
+	.surveyBody {
+		background: #009ACD;
+		background-image: url(../images/blackpanther.png);
+		background-position: bottom right;
+		background-repeat: no-repeat;
+		color: #000;
 	}
 
 /*Grid container*/
 	.gridContainer {
 		display: grid;
-		min-height: 100vh;
+		height: 100vh;
 		grid-template-columns: 1fr 1fr;
-		grid-template-rows: 2fr 1fr 5%;
+		grid-template-rows: 2fr 1fr 25px;
 		grid-template-areas:
 			"header header"
 			"featured about"
@@ -48,8 +60,12 @@
 	}
 
 	.footer {
-		background: rgba(0, 0, 0, .6);
+		background: rgba(0, 0, 0, .2);
 		grid-area: footer;
+	}
+
+	.homeFooter img {
+		filter: invert(100%);
 	}
 
 /*Grid Container Content*/
@@ -64,7 +80,6 @@
 		border: solid 5px #fff;
 		background: rgba(255, 255, 255, 0.2);
 		padding: 0.3em;
-		user-select: none;
 		margin: 0 5%;
 	}
 
@@ -86,6 +101,51 @@
 		padding: 0 10%;
 	}
 
+	.footer {
+		display: inline-flex;
+		justify-content: space-between;
+		padding: 0 1%;
+		align-items: center;
+		width: 98%;
+	}
+
+/*Survey CSS*/
+	.surveyContainer {
+
+	}
+
+	.heading {
+		padding-left: 5%;
+		margin-bottom: 2%;
+		background: linear-gradient(#660066, #800080, #be29ec);
+		border-bottom: solid 2px #000;
+	}
+
+	.surveyQuestions {
+		margin: 2% 2%;
+	}
+
+	form {
+		line-height: 1.6;
+		width: 50%;
+	}
+
+	input {
+		width: 75%;
+		padding: 0.25em;
+		margin-bottom: 1%;
+	}
+
+	select {
+		width: 100%;
+		padding: 0.25em;
+		margin-bottom: 2%;
+	}
+
+	#submit {
+		width: 25%;
+	}
+
 /*Text Classes*/
 	h1 {
 		font-family: "lobster", Arial, sans-serif;
@@ -102,6 +162,16 @@
 		font-size: 1.5em;
 	}
 
+	h6 {
+		font-size: 0.75em;
+	}
+
 	p {
 		font-size: 1em;
 	}
+
+/*social media icons*/
+
+.footer img {
+	height: 25px;
+}
