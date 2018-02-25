@@ -1,0 +1,107 @@
+/*Friend Finder*/
+
+/*Fonts*/
+	@font-face {
+		font-family: "lobster";
+		src: url("fonts/lobster/Lobster-Regular.ttf");
+	}
+
+	@font-face {
+		font-family: "arimo";
+		src: url("fonts/arimo/Arimo-Regular.ttf");
+	}
+
+/*global elements*/
+	body {
+		font-size: 15px;
+		font-family: "arimo", Arial, sans-serif;
+		color: #fff;
+		box-sizing: border-box;
+		background: radial-gradient(circle, #660066, #800080, #be29ec, #660066);
+		background-size: cover;
+	}
+
+/*Grid container*/
+	.gridContainer {
+		display: grid;
+		min-height: 100vh;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 2fr 1fr 5%;
+		grid-template-areas:
+			"header header"
+			"featured about"
+			"footer footer";
+	}
+/*Grid Container Classes*/
+	.header {
+		align-self: center;
+		text-align: center;
+		grid-area: header;
+	}
+
+	.featuredUser {
+		grid-area: featured;
+	}
+
+	.about {
+		grid-area: about;
+	}
+
+	.footer {
+		background: rgba(0, 0, 0, .6);
+		grid-area: footer;
+	}
+
+/*Grid Container Content*/
+	.headerButtons {
+		width: 100%;
+		display: inline-flex;
+		justify-content: center;
+		margin-top: 5%;
+	}
+
+	.button {
+		border: solid 5px #fff;
+		background: rgba(255, 255, 255, 0.2);
+		padding: 0.3em;
+		user-select: none;
+		margin: 0 5%;
+	}
+
+	.button:hover {
+		background: rgba(255, 255, 255, 0.5);
+	}
+
+	.button:active {
+		position: relative;
+		top: -5px;
+	}
+
+	.featuredUser {
+		padding-left: 10%;
+	}
+
+	.about {
+		text-align: right;
+		padding: 0 10%;
+	}
+
+/*Text Classes*/
+	h1 {
+		font-family: "lobster", Arial, sans-serif;
+		font-size: 9em;
+		color: #960000;
+		text-shadow: 2px 2px 8px #FF0000;
+	}
+
+	h2 {
+		font-size: 2em;
+	}
+
+	h3 {
+		font-size: 1.5em;
+	}
+
+	p {
+		font-size: 1em;
+	}
