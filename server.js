@@ -10,7 +10,7 @@ var app = express();
 var PORT = process.env.PORT || 3000;
 
 //setting up pathways that website will rely on
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/app'));
 
