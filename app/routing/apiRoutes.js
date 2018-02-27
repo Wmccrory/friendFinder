@@ -1,6 +1,6 @@
 //dependencies
 var path = require("path");
-require("../data/friends.js")
+require("../data/friends.js");
 
 //function directing website flow
 module.exports = function(app) {
@@ -12,7 +12,6 @@ module.exports = function(app) {
 	//post a new user into user array
 	app.post("/api/friends", function(req, res) {
 		var newUser = req.body;
-		console.log(newUser);
 		users.push(newUser);
 		res.json(newUser);
 	})

@@ -8,12 +8,35 @@
 	<link rel="icon" href="../images/favicon.png">
 	<link rel="stylesheet" type="text/css" href="../css/reset.css">
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.1/croppie.min.css" />
 </head>
 
 <body class="surveyBody">
 	<div class="surveyContainer">
+		<div class="modal">
+			<div class="modalBackground"></div>
+			
+			<div class="modalForeground">
+				<h2 id="modalClose">&#10006;</h2>
+
+				<h1>Congrats, your match:</h1>
+
+				<div id="modalInfo">
+					<div id="modalPhoto">
+						<img src="../images/userphoto/will1.jpg" />
+						<h3>92% match</h3>
+					</div>
+
+					<div id="modalStats">
+						<h1>Will McCroryyy</h1>
+						<h2>"I always choose the first option"</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<div class="heading">
-			<h1>friendFINDer</h1>
+			<a href="/"><h1>friendFINDer</h1></a>
 		</div>
 
 		<div class="survey">
@@ -27,11 +50,6 @@
 					<label>Your name</label>
 						<br>
 					<input type="text" id="name" required>
-						<br>
-
-					<label>Your picture</label>
-						<br>
-					<input type="text" id="userPicture" required>
 						<br>
 
 					<label>Your motto</label>
@@ -147,7 +165,7 @@
 					</Select>
 						<br>
 
-					<label>Question 10</label>
+					<label>DTF?</label>
 						<br>
 					<Select id="q10" required>
 						<option value="">Select an option</option>
@@ -157,11 +175,26 @@
 						<option>4</option>
 						<option>5</option>
 					</Select>
-						<br><br>
+						<br>
+
+					<label>Your picture</label>
+						<br>
+					<input type="file" id="userPicture" required>
+						<br>
+						<br>
+
+					<div id="imageCrop">
+						<button id="imageDone">Finished Cropping image</button>
+					</div>
+
 					<input id="submit" type="submit" value="Submit Your Answers">
 				</form>
 			</div>
 		</div>
+	</div>
+
+	<div id="testDiv">
+		Hello
 	</div>
 
 	<div class="footer">
@@ -178,6 +211,7 @@
 			</div>
 
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.1/croppie.min.js"></script>
 			<script src="../data/javascript.js"></script>
 	</div>
 </body>
