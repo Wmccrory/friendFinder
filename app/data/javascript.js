@@ -1,19 +1,44 @@
 //friend finder logic
 
 var userId = 2; //var increment to make unique route names
-var imageReady = false;
-var userSubmit = false;
+var imageReady = false; //making sure user has uploaded and cropped image is ready to go
+var userSubmit = false; //checking to see if user has already submitted profile
 var tempImageString; //holding base64 image string
+
+//initalizing croppie
+var basic = $('#imageCrop').croppie({
+	viewport: { width: 300, height: 300, type: 'circle' },
+	boundary: { width: 350, height: 350 },
+	showZoomer: true,
+	url: "../images/blackpanthercroppie.png"
+});
+
+//function bank///////////////////////////////////////////////
+
+//taking user uploaded photo and sending it to croppie
+function readURL(input) {
+	if (input.files && input.files[0]) {
+		var reader = new FileReader();
+
+		reader.onload = function (e) {
+			$('#imageCrop').croppie('bind', {
+				url: e.target.result
+			});
+		}
+
+		reader.readAsDataURL(input.files[0]);
+	}
+}
 
 //Saving results to database
 function surveyResults () {
 	//if image crop hasn't been finalized do not accept input
 	if (!imageReady) {
-		return console.log("Not ready yet");
+		return $("form").append("<h6>Image crop not finalized. Please press 'finished cropping image'. If you already have, give it a moment to upload.</h6>");
 	}
 
 	if (userSubmit) {
-		return console.log("Already submitted!");
+		return $("form").append("<h6>You've already submitted your form and found true love. Now get out of here!</h6>");
 	}
 
 	$("#imageCrop").hide();
@@ -77,6 +102,8 @@ function bestMatch (potentialMatch) {
 	$(".modal").show()
 };
 
+//user experience pathways/////////////////////////////////
+
 //getting rid of modal
 $(".modalBackground, #modalClose").on("click", function () {
 	$(".modal").hide();
@@ -92,46 +119,13 @@ $("#userPicture").change(function(){
 	readURL(this);
 });
 
-// //Making sure image is cropped and ready to go
-// $("#imageDone").on("click", function() {
-// 	event.preventDefault();
-// 	imageReady = true;
-// 	basic.result().then(data => {
-// 		console.log(data);
-// 	})
-// })
-
-//test area
-
-//taking user uploaded photo
-function readURL(input) {
-	if (input.files && input.files[0]) {
-		var reader = new FileReader();
-
-		reader.onload = function (e) {
-			$('#imageCrop').croppie('bind', {
-				url: e.target.result
-			});
-		}
-
-		reader.readAsDataURL(input.files[0]);
-	}
-}
-
-//initalizing croppie
-var basic = $('#imageCrop').croppie({
-	viewport: { width: 300, height: 300, type: 'circle' },
-	boundary: { width: 350, height: 350 },
-	showZoomer: true,
-	url: "../images/blackpanthercroppie.png"
-});
-
 //Making sure image is cropped and ready to go
 $("#imageDone").on("click", function() {
 	event.preventDefault();
-	imageReady = true;
-	basic.croppie('result').then(data => {
-		tempImageString = data;
-		console.log(tempImageString);
-	})
-})
+	basic.croppie('result').then(croppieData => {
+		tempImageString = croppieData;
+		imageReady = true;
+	});
+});
+
+//test area
