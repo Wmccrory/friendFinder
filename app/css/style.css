@@ -271,9 +271,9 @@
 }
 
 @media only screen and (max-width: 814px) {
-/*	body {
+	body {
 		font-size: 10px;
-	}*/
+	}
 
 	#modalPhoto img {
 		height: 200;
